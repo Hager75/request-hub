@@ -12,5 +12,4 @@ swiper-slide img {
 
 .sec-title::after{
   content: "our partners";
-  @apply uppercase absolute text-primary opacity-15 text-[3rem] leading-none md:text-[5rem]  left-0 top-1/2 transform -translate-y-1/2;
 }
