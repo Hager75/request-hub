@@ -1,0 +1,16 @@
+swiper-container {
+    @apply w-full h-full;
+}
+
+swiper-slide {
+    @apply text-center bg-white flex justify-center items-center text-lg;
+}
+
+swiper-slide img {
+    @apply block w-full max-w-[15rem] h-full object-cover;
+}
+
+.sec-title::after{
+  content: "our partners";
+  @apply uppercase absolute text-primary opacity-15 text-[3rem] leading-none md:text-[5rem]  left-0 top-1/2 transform -translate-y-1/2;
+}

@@ -1,0 +1,12 @@
+<div>
+    <h2 class="text-primary font-bold text-2xl md:text-4xl m-10 sec-title relative">Our Partners</h2>
+    <swiper-container class="mySwiper" pagination="true" pagination-type="none" space-between="10" slides-per-view="4"
+         autoplay="true">
+        @for (client of CLIENTS_DATA; track $index) {
+        <swiper-slide class="h-full self-center">
+            <img [src]="client.imageInfo.url" [alt]="client.imageInfo.alt">
+        </swiper-slide>
+        }
+    </swiper-container>
+
+</div>

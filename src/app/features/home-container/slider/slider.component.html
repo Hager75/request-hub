@@ -1,0 +1,16 @@
+<swiper-container class="mySwiper"
+    style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff;--swiper-pagination-bullet-inactive-color:#ffffff96;--swiper-pagination-bullet-inactive-opacity:1"
+    navigation="true" pagination="true" pagination-clickable="true">
+    @for (carousel of SLIDER_DATA; track carousel.id) {
+    <swiper-slide>
+        <img [src]="carousel.imageInfo.url" class="w-full" [alt]="carousel.imageInfo.alt">
+        <div
+            class="absolute z-30 text-white  text-center top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%]">
+            <h3 class="font-bold">{{carousel.title | titlecase}}</h3>
+            <button type="button" class="text-white  font-medium rounded-lg text-sm px-5 py-2.5 bg-primary"
+                (click)="onClick(carousel.id)">{{carousel.btn | titlecase}}</button>
+        </div>
+
+    </swiper-slide>
+    }
+</swiper-container>
