@@ -11,8 +11,8 @@ import { REQUESTS } from '../../shared/constant/shared';
 export class RequestService {
   constructor(private http: HttpClient) {}
 
-  createRequest(request: UserRequest): Observable<RequestResponse<UserRequest>> {
-    return this.http.post<RequestResponse<UserRequest>>(`http/200`, request);
+  createRequest(request: UserRequest): Observable<UserRequest> {
+    return this.http.post<UserRequest>(`http/200`, request);
   }
 
   addRequestLocalStorage(request: UserRequest): void {

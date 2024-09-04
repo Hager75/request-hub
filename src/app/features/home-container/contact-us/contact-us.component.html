@@ -61,17 +61,17 @@
           formControlName="captcha"
         ></re-captcha>
         @if (form.get('captcha')?.errors && form.get('captcha')?.touched) {
-          <p class="text-error text-xs my-1 p-0">Captcha is required</p>
+        <p class="text-error text-xs my-1 p-0">Captcha is required</p>
         }
       </div>
       @if (isLoading() === false) {
-        <button (click)="onSubmit()" [disabled]="form.invalid" class="btn-primary w-full">
-          Send
-        </button>
+      <button (click)="onSubmit()" [disabled]="form.invalid" class="btn-primary w-full">
+        Send
+      </button>
       } @else {
-        <button class="btn-primary w-full">
-          <app-loader />
-        </button>
+      <button class="btn-primary w-full">
+        <app-loader />
+      </button>
       }
     </form>
   </div>
