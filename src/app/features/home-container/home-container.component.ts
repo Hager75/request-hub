@@ -27,6 +27,7 @@ export class HomeContainerComponent {
      this.isLoading.set(true);
     this.requestService.createRequest(formData).pipe(tap((res) => {
       this.toastr.success('Request is added Successfully!');
+      this.requestService.addRequestLocalStorage(formData);
     }), finalize(() => {
       this.isLoading.set(false);
     })).subscribe();

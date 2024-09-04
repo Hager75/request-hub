@@ -6,6 +6,10 @@ export const routes: Routes = [
         path: '',
         component: HomeContainerComponent
     },
+    {
+        path: 'login',
+        loadComponent: () =>import("./features/login-container/login-container.component").then((m) => m.LoginContainerComponent),
+    },
     { path: '**', redirectTo: '' },
 
 ];

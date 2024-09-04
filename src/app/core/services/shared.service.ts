@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
     providedIn: 'root',
 })
 export class SharedService {
-    constructor() { }
+    constructor() {}
+
     getRequestWithToken(token: string, request: HttpRequest<unknown>, headers: {
         'Access-Control-Allow-Origin': string;
         Accept: string;
