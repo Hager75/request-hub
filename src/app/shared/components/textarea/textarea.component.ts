@@ -10,19 +10,18 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class TextareaComponent {
   title = input.required();
-  fieldPlaceholder= input();
-  id= input.required();
+  fieldPlaceholder = input();
+  id = input.required();
   control = input.required<string>();
-  form = input.required<FormGroup<any>>();
+  form = input.required<FormGroup>();
   validationMsg = input<string>();
 
-  onChange():void{
-      const requestData = this.form()?.get(this.control())?.value?.trimLeft();
-      if (requestData?.length > 0) {
-        this.form()?.get(this.control())?.setValue(requestData);
-      } else {
-        this.form()?.get(this.control())?.setValue(null);
-      }
-  
+  onChange(): void {
+    const requestData = this.form()?.get(this.control())?.value?.trimLeft();
+    if (requestData?.length > 0) {
+      this.form()?.get(this.control())?.setValue(requestData);
+    } else {
+      this.form()?.get(this.control())?.setValue(null);
+    }
   }
 }

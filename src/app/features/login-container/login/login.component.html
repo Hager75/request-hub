@@ -2,9 +2,7 @@
   class="w-full max-w-lg p-4 sm:mx-auto my-10 bg-white border border-gray-200 rounded-lg drop-shadow-lg sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 h-full"
 >
   <form class="space-y-6" [formGroup]="form">
-    <h5 class="text-xl font-bold text-gray-900 dark:text-white mb-5">
-      Sign in to our platform
-    </h5>
+    <h5 class="text-xl font-bold text-gray-900 dark:text-white mb-5">Sign in to our platform</h5>
     <app-input
       fieldPlaceholder="Enter your name"
       fieldType="text"
@@ -33,23 +31,22 @@
             class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
           />
         </div>
-        <label
-          for="remember"
-          class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
           >Remember me</label
         >
       </div>
     </div>
     <div class="text-center">
-      @if(isLoading()===false){
+      @if (isLoading() === false) {
       <button
         type="submit"
         class="btn-primary w-full"
         [disabled]="form.invalid"
         (click)="onSubmit()"
       >
-        Login to your account</button
-      >}@else {
+        Login to your account
+      </button>
+      } @else {
       <button class="btn-primary w-full">
         <app-loader />
       </button>

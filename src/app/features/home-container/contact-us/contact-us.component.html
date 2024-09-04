@@ -1,20 +1,16 @@
 <div class="mt-20">
   <div class="px-10">
-    <h2 class="text-primary font-bold text-4xl mb-10 sec-title relative">
-      Contact us
-    </h2>
+    <h2 class="text-primary font-bold text-4xl mb-10 sec-title relative">Contact us</h2>
   </div>
-  <div
-    class="grid grid-cols-1 md:grid-cols-2 bg-gradient-to-t from-[#dcf2fc] to-[#fff] p-10"
-  >
+  <div class="grid grid-cols-1 md:grid-cols-2 bg-gradient-to-t from-[#dcf2fc] to-[#fff] p-10">
     <div>
       <div>
         <h3 class="text-3xl my-5 font-bold text-gray-600">
           Digital Consulting For Growing Your Goals
         </h3>
         <p class="text-gray-500 max-w-xl">
-          We Help Clients Develop A Digital Strategy So They Know What They Need
-          To Do And Why They Need To Do It.
+          We Help Clients Develop A Digital Strategy So They Know What They Need To Do And Why They
+          Need To Do It.
         </p>
       </div>
     </div>
@@ -68,19 +64,13 @@
         <p class="text-error text-xs my-1 p-0">Captcha is required</p>
         }
       </div>
-      @if(isLoading()===false){
-      <button
-        (click)="onSubmit()"
-        [disabled]="form.invalid"
-        class="btn-primary w-full"
-      >
+      @if (isLoading() === false) {
+      <button (click)="onSubmit()" [disabled]="form.invalid" class="btn-primary w-full">
         Send
       </button>
-      }@else {
-      <button
-        class="btn-primary w-full"
-      >
-        <app-loader /> 
+      } @else {
+      <button class="btn-primary w-full">
+        <app-loader />
       </button>
       }
     </form>

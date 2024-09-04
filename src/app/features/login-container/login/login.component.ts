@@ -1,15 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-  output,
-} from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { InputComponent } from '../../../shared/components/input/input.component';
 import { LoaderComponent } from '../../../shared/components/loader/loader.component';
@@ -35,9 +25,9 @@ export class LoginComponent {
   onSubmit(): void {
     if (this.form.status === 'VALID') {
       const formData: UserFormData = {
-        username: this.form.get('username')?.value!,
-        password: this.form.get('password')?.value!,
-        rememberMe: this.form.get('rememberMe')?.value!,
+        username: this.form.get('username')?.value ?? '',
+        password: this.form.get('password')?.value ?? '',
+        rememberMe: this.form.get('rememberMe')?.value ?? false,
       };
       this.handleForm.emit(formData);
     }

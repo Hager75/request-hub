@@ -1,5 +1,4 @@
 export enum Storage {
-    Local = 'local',
-    Session = 'session'
-
+  Local = 'local',
+  Session = 'session',
 }

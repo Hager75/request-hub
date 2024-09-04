@@ -4,13 +4,12 @@ import { RequestListContainerComponent } from './request-list-container/request-
 import { ViewEditRequestContainerComponent } from './view-edit-request-container/view-edit-request-container.component';
 
 export const routes: Routes = [
-    {
-        path: '',
-        component: RequestListContainerComponent
-    },
-    {
-        path: ':id',
-        component: ViewEditRequestContainerComponent
-    },
-
+  {
+    path: '',
+    component: RequestListContainerComponent,
+  },
+  {
+    path: ':id',
+    component: ViewEditRequestContainerComponent,
+  },
 ];

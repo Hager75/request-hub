@@ -13,7 +13,10 @@ export const routes: Routes = [
         (m) => m.LoginContainerComponent
       ),
   },
-  { path: 'requests', loadChildren: () => import('./features/requests/requests.routes').then(mod=>mod.routes) },
+  {
+    path: 'requests',
+    loadChildren: () => import('./features/requests/requests.routes').then((mod) => mod.routes),
+  },
 
   { path: '**', redirectTo: '' },
 ];

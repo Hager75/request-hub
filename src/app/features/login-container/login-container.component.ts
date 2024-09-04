@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { finalize, tap } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
@@ -30,7 +25,7 @@ export class LoginContainerComponent {
     this.loginService
       .login(formData)
       .pipe(
-        tap((res) => {
+        tap(() => {
           this.toastr.success('Logged in Successfully!');
           this.router.navigate(['/requests']);
         }),
