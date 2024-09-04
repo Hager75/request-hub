@@ -1,0 +1,88 @@
+<div class="mt-20">
+  <div class="px-10">
+    <h2 class="text-primary font-bold text-4xl mb-10 sec-title relative">
+      Contact us
+    </h2>
+  </div>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 bg-gradient-to-t from-[#dcf2fc] to-[#fff] p-10"
+  >
+    <div>
+      <div>
+        <h3 class="text-3xl my-5 font-bold text-gray-600">
+          Digital Consulting For Growing Your Goals
+        </h3>
+        <p class="text-gray-500 max-w-xl">
+          We Help Clients Develop A Digital Strategy So They Know What They Need
+          To Do And Why They Need To Do It.
+        </p>
+      </div>
+    </div>
+
+    <form [formGroup]="form">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <app-input
+          fieldType="text"
+          id="contactus__username"
+          title="Name"
+          control="username"
+          [form]="form"
+          fieldPlaceholder="Enter your name"
+          validationMsg="Name is required"
+        />
+        <app-input
+          fieldType="text"
+          id="contactus__phone"
+          validationMsg="Phone is required"
+          title="Phone"
+          control="phone"
+          [form]="form"
+          fieldPlaceholder="Enter your phone"
+        />
+      </div>
+      <app-input
+        fieldType="email"
+        id="contactus__email"
+        title="Email"
+        control="email"
+        [form]="form"
+        fieldPlaceholder="test@test.com"
+      />
+      <app-textarea
+        title="Content"
+        validationMsg="Content is required"
+        fieldPlaceholder="Enter your message"
+        [form]="form"
+        id="contactus__content"
+        control="content"
+      />
+      <div class="my-5">
+        <re-captcha
+          (resolved)="resolved($event)"
+          [siteKey]="SITE_KEY"
+          (errored)="errored($event)"
+          errorMode="handled"
+          formControlName="captcha"
+        ></re-captcha>
+        @if (form.get('captcha')?.errors && form.get('captcha')?.touched) {
+        <p class="text-error text-xs my-1 p-0">Captcha is required</p>
+        }
+      </div>
+      @if(isLoading()===false){
+      <button
+        (click)="onSubmit()"
+        [disabled]="form.invalid"
+        class="btn-primary w-full"
+      >
+        Send
+      </button>
+      }@else {
+      <button
+        class="btn-primary w-full"
+      >
+        <app-loader /> 
+      </button>
+      }
+    </form>
+  </div>
+</div>
