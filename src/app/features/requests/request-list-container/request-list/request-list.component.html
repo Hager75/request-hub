@@ -1,0 +1,68 @@
+<div class="mx-10">
+  <h3 class="text-2xl font-bold text-primary mb-4">Request List</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <app-select
+      [form]="form"
+      control="sortBy"
+      [items]="sortByOptions"
+      id="sortByRequest"
+      title="Sort by"
+    />
+    <app-select
+      [form]="form"
+      control="sortType"
+      [items]="sortType()"
+      id="sortType"
+      title="Sort options"
+    />
+  </div>
+  <div class="my-5">
+    <ol class="relative border-s border-gray-200 dark:border-gray-700">
+      @for (request of filteredList(); track request.id) {
+        <li class="mb-10 ms-4">
+          <div
+            class="absolute w-3 h-3 bg-secondary rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
+          ></div>
+          <div class="ms-5 border pb-10 border-0 border-b-2">
+            <time class="mb-1 text-sm font-normal leading-none text-primary"
+              >Date: {{ request.date | date: 'MM/dd/yyyy' }}</time
+            >
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+              Name: {{ request.username }}
+            </h3>
+            <p class="text-base font-normal text-gray-600 dark:text-gray-400 mb-4">
+              Content: <span class="text-gray-800">{{ request.content }}</span>
+            </p>
+            <p class="mb-4 text-base font-normal text-gray-600 dark:text-gray-400">
+              Status:
+              <span
+                class="{{
+                  chipStatus[request.status]
+                }} text-sm font-medium me-2 px-2.5 py-1.5 rounded-lg"
+                >{{ request.status }}</span
+              >
+            </p>
+            <button class="btn-primary flex items-center justify-center">
+              Edit
+              <svg
+                class="w-3 mt-1 h-3 ms-2 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+            </button>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</div>

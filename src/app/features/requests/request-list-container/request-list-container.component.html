@@ -1,1 +1,5 @@
-<p>request-list-container works!</p>
+@if (isLoading() === false) {
+  <app-request-list [list]="requestList()" />
+} @else {
+  <app-loader className="my-10" />
+}

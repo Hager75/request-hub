@@ -6,7 +6,7 @@ import { SliderComponent } from './slider/slider.component';
 import { PartnersComponent } from './partners/partners.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { RequestService } from '../../core/services/request.service';
-import { Request } from '../../core/model/request.model';
+import { UserRequest } from '../../core/model/request.model';
 import { LoaderComponent } from '../../shared/components/loader/loader.component';
 
 @Component({
@@ -22,7 +22,7 @@ export class HomeContainerComponent {
   toastr = inject(ToastrService);
   isLoading = signal(false);
 
-  onSubmit(formData: Request): void {
+  onSubmit(formData: UserRequest): void {
     this.isLoading.set(true);
     this.requestService
       .createRequest(formData)
