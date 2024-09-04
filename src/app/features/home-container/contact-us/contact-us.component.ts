@@ -5,9 +5,10 @@ import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha-2';
 
 import { InputComponent } from '../../../shared/components/input/input.component';
 import { TextareaComponent } from '../../../shared/components/textarea/textarea.component';
-import { Request } from '../../../core/model/request.model';
+import { UserRequest } from '../../../core/model/request.model';
 import { LoaderComponent } from '../../../shared/components/loader/loader.component';
 import { SITE_KEY } from '../../../../environment/environment';
+import { RequestStatus } from '../../../core/model/shared.enums';
 
 @Component({
   selector: 'app-contact-us',
@@ -27,7 +28,7 @@ import { SITE_KEY } from '../../../../environment/environment';
 })
 export class ContactUsComponent {
   SITE_KEY = SITE_KEY;
-  handleForm = output<Request>();
+  handleForm = output<UserRequest>();
   isLoading = input(false);
 
   resolved(response: string | null): void {
@@ -49,12 +50,15 @@ export class ContactUsComponent {
 
   onSubmit(): void {
     if (this.form.status === 'VALID') {
-      const formData: Request = {
+      const formData: UserRequest = {
         username: this.form.get('username')?.value ?? '',
         phone: this.form.get('phone')?.value ?? '',
         email: this.form.get('email')?.value ?? '',
         content: this.form.get('content')?.value ?? '',
         captcha: this.form.get('captcha')?.value ?? '',
+        status: RequestStatus.Submitted,
+        date: new Date().toISOString(),
+        id: +new Date(),
       };
       this.handleForm.emit(formData);
     }

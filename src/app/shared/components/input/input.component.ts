@@ -1,11 +1,10 @@
-import { JsonPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, input, OnInit, signal } from '@angular/core';
 import { FormGroup, ReactiveFormsModule, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
   standalone: true,
-  imports: [ReactiveFormsModule, JsonPipe],
+  imports: [ReactiveFormsModule],
   templateUrl: './input.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

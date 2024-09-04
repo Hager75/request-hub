@@ -20,6 +20,7 @@ export class LoginContainerComponent {
   toastr = inject(ToastrService);
   isLoading = signal(false);
   router = inject(Router);
+
   onSubmit(formData: UserFormData): void {
     this.isLoading.set(true);
     this.loginService

@@ -38,18 +38,18 @@
     </div>
     <div class="text-center">
       @if (isLoading() === false) {
-      <button
-        type="submit"
-        class="btn-primary w-full"
-        [disabled]="form.invalid"
-        (click)="onSubmit()"
-      >
-        Login to your account
-      </button>
+        <button
+          type="submit"
+          class="btn-primary w-full"
+          [disabled]="form.invalid"
+          (click)="onSubmit()"
+        >
+          Login to your account
+        </button>
       } @else {
-      <button class="btn-primary w-full">
-        <app-loader />
-      </button>
+        <button class="btn-primary w-full">
+          <app-loader />
+        </button>
       }
     </div>
   </form>

@@ -1,7 +1,7 @@
 <div class="mb-5" [formGroup]="form()">
-  <label [for]="id()" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-    >{{ title() }}</label
-  >
+  <label [for]="id()" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
+    title()
+  }}</label>
   <textarea
     [id]="id()"
     [formControlName]="control()"
@@ -11,6 +11,6 @@
     (input)="onChange()"
   ></textarea>
   @if (form().get(control())?.errors && form().get(control())?.touched && validationMsg()) {
-  <p class="text-error text-xs my-1 p-0">{{ validationMsg() }}</p>
+    <p class="text-error text-xs my-1 p-0">{{ validationMsg() }}</p>
   }
 </div>
