@@ -1,5 +1,5 @@
 <app-slider/>
 <app-partners/>
-<app-contact-us/>
+<app-contact-us (handleForm)="onSubmit($event)" [isLoading]="isLoading()"/>
 
 
