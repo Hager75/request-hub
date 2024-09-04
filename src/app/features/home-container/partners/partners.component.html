@@ -10,9 +10,9 @@
     autoplay="true"
   >
     @for (client of CLIENTS_DATA; track $index) {
-    <swiper-slide class="h-full self-center">
-      <img [src]="client.imageInfo.url" [alt]="client.imageInfo.alt" />
-    </swiper-slide>
+      <swiper-slide class="h-full self-center">
+        <img [src]="client.imageInfo.url" [alt]="client.imageInfo.alt" />
+      </swiper-slide>
     }
   </swiper-container>
 </div>
