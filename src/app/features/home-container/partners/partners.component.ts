@@ -12,20 +12,19 @@ import { CLIENTS_DATA } from '../../../shared/constant/partners';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PartnersComponent {
-  CLIENTS_DATA=CLIENTS_DATA;
+  CLIENTS_DATA = CLIENTS_DATA;
   breakpoints = {
     320: {
       slidesPerView: 1,
     },
-    480: { 
+    480: {
       slidesPerView: 2,
     },
-    768: { 
+    768: {
       slidesPerView: 3,
     },
-    1024: { 
+    1024: {
       slidesPerView: 4,
-    }
+    },
   };
 }
-

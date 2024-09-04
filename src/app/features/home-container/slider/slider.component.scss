@@ -1,8 +1,7 @@
 swiper-container {
-    @apply block w-full;
-
+  @apply block w-full;
 }
 
 swiper-slide img {
-    @apply block w-full min-h-[25vh] object-cover;
+  @apply block w-full min-h-[25vh] object-cover;
 }

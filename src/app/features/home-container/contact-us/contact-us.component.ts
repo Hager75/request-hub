@@ -1,22 +1,12 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-  output,
-} from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha-2';
 
 import { InputComponent } from '../../../shared/components/input/input.component';
 import { TextareaComponent } from '../../../shared/components/textarea/textarea.component';
 import { Request } from '../../../core/model/request.model';
-import { LoaderComponent } from "../../../shared/components/loader/loader.component";
+import { LoaderComponent } from '../../../shared/components/loader/loader.component';
 import { SITE_KEY } from '../../../../environment/environment';
 
 @Component({
@@ -28,8 +18,8 @@ import { SITE_KEY } from '../../../../environment/environment';
     RecaptchaModule,
     TextareaComponent,
     RecaptchaFormsModule,
-    LoaderComponent
-],
+    LoaderComponent,
+  ],
   providers: [],
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.scss',
@@ -45,33 +35,28 @@ export class ContactUsComponent {
     console.log('reCAPTCHA v2 Response:', response);
   }
 
-  errored(err: any) {
-    console.warn(`reCAPTCHA error encountered`);
+  errored(err: string[]) {
+    console.warn(`reCAPTCHA error encountered`, err[0]);
   }
 
   form = new FormGroup({
-    username: new FormControl('', [
-      Validators.required,
-      Validators.pattern(/^[a-zA-Z]+$/),
-    ]),
+    username: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    phone: new FormControl('', [
-      Validators.required,
-      Validators.pattern(/^\+?[0-9]+$/),
-    ]),
+    phone: new FormControl('', [Validators.required, Validators.pattern(/^\+?[0-9]+$/)]),
     content: new FormControl('', Validators.required),
     captcha: new FormControl('', Validators.required),
   });
+
   onSubmit(): void {
     if (this.form.status === 'VALID') {
-    const formData: Request = {
-      username: this.form.get('username')?.value!,
-      phone: this.form.get('phone')?.value!,
-      email: this.form.get('email')?.value!,
-      content: this.form.get('content')?.value!,
-      captcha: this.form.get('captcha')?.value!,
-    };
-    this.handleForm.emit(formData);
+      const formData: Request = {
+        username: this.form.get('username')?.value ?? '',
+        phone: this.form.get('phone')?.value ?? '',
+        email: this.form.get('email')?.value ?? '',
+        content: this.form.get('content')?.value ?? '',
+        captcha: this.form.get('captcha')?.value ?? '',
+      };
+      this.handleForm.emit(formData);
     }
   }
 }

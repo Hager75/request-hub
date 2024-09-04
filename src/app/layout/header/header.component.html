@@ -1,10 +1,7 @@
 <nav class="bg-white border-gray-200 dark:bg-gray-900 border-b-[1px] w-full">
-  <div
-    class="flex flex-wrap items-center justify-between py-4 ps-10 pe-5 lg:px-10"
-  >
+  <div class="flex flex-wrap items-center justify-between py-4 ps-10 pe-5 lg:px-10">
     <a class="flex items-center space-x-3 rtl:space-x-reverse my-1">
-      <span
-        class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
         >Request Hub</span
       >
     </a>
@@ -39,9 +36,7 @@
       >
         <li>
           <div class="relative mb-3 md:mb-0">
-            <div
-              class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
-            >
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <svg
                 class="w-4 h-4 text-gray-500 dark:text-gray-400"
                 aria-hidden="true"
@@ -76,6 +71,7 @@
             >Home</a
           >
         </li>
+        @if (!loginService.userToken()) {
         <li>
           <a
             routerLink="/login"
@@ -84,6 +80,25 @@
             >Login</a
           >
         </li>
+        } @else {
+        <li>
+          <a
+            routerLink="/requests"
+            routerLinkActive="text-white bg-primary md:text-primary md:bg-transparent"
+            class="block font-semibold cursor-pointer py-2 px-3 rounded text-gray-600 md:p-0 dark:text-white md:dark:text-blue-500"
+            >Requests</a
+          >
+        </li>
+        <li>
+          <button
+            (click)="logout()"
+            routerLinkActive="text-white bg-primary md:text-primary md:bg-transparent"
+            class="block font-semibold cursor-pointer py-2 px-3 rounded text-gray-600 md:p-0 dark:text-white md:dark:text-blue-500"
+          >
+            Logout
+          </button>
+        </li>
+        }
       </ul>
     </div>
   </div>

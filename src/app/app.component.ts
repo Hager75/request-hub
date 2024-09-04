@@ -1,23 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { initFlowbite } from 'flowbite';
 
 import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from "./layout/footer/footer.component";
+import { FooterComponent } from './layout/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
   title = 'request-hub';
-  
+
   ngOnInit(): void {
     initFlowbite();
   }
-
 }
