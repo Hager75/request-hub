@@ -20,7 +20,7 @@ export class InputComponent implements OnInit{
   validationMsg = input<string>();
   errors = signal<ValidationErrors | null | undefined>(null);
 
- errorMsg = computed(() => {  
+ errorMsg = computed(() => {    
     if (this.errors()?.['required']) {
       return `${this.title()} is required.`;
     } else if(this.errors()?.['email']) {
@@ -33,7 +33,7 @@ export class InputComponent implements OnInit{
   });
   
   ngOnInit(): void {
-    this.form()?.get(this.control())?.statusChanges.subscribe((status)=>{
+    this.form()?.get(this.control())?.statusChanges.subscribe((status)=>{      
       if(status === 'INVALID'){
         this.errors.set(this.form()?.get(this.control())?.errors)
       }

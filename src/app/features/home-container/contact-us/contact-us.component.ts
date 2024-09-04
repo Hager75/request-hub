@@ -62,6 +62,7 @@ export class ContactUsComponent {
     content: new FormControl('', Validators.required),
     captcha: new FormControl('', Validators.required),
   });
+  
   onSubmit(): void {
     if (this.form.status === 'VALID') {
     const formData: Request = {

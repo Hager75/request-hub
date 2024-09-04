@@ -16,7 +16,6 @@ import { LoaderComponent } from "../../shared/components/loader/loader.component
   templateUrl: './home-container.component.html',
   styleUrl: './home-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-
 })
 export class HomeContainerComponent { 
   requestService= inject(RequestService);
