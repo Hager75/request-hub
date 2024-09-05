@@ -11,15 +11,16 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
 import { UserRequest } from '../../../../core/model/request.model';
-import { Option, RequestStatus } from '../../../../core/model/shared.enums';
+import { Option } from '../../../../core/model/shared.enums';
 import { SelectComponent } from '../../../../shared/components/select/select.component';
 import {
   chipStatus,
-  SELECT_ALL,
   sortByOptions,
   sortDateTypeOptions,
+  statusMap,
   statusOptions,
 } from '../../../../shared/constant/shared';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-request-list',
@@ -31,6 +32,7 @@ import {
 })
 export class RequestListComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
+  private router = inject(Router);
 
   list = input.required<UserRequest[]>();
   filteredList = signal<UserRequest[]>([]);
@@ -46,15 +48,10 @@ export class RequestListComponent implements OnInit {
 
   sortByOptions = sortByOptions;
 
-  statusMap = {
-    [RequestStatus.Submitted]: '1',
-    [RequestStatus.Resolved]: '2',
-    [RequestStatus.NotApplicable]: '0',
-    all: SELECT_ALL,
-  };
+  statusMap = statusMap;
 
   ngOnInit(): void {
-    this.filteredList.set(this.list());
+    this.filteredList.set([...this.list()]);
     const sortBySubscription = this.form.get('sortBy')?.valueChanges.subscribe((value) => {
       this.sortType.set(value === 'date' ? sortDateTypeOptions : statusOptions);
       this.form.get('sortType')?.setValue('-1');
@@ -103,5 +100,9 @@ export class RequestListComponent implements OnInit {
         .sort((a, b) => a.status.localeCompare(b.status));
       this.filteredList.set([...selectedstatusList, ...sortedList]);
     }
+  }
+
+  onClick(id: number): void {
+    this.router.navigate(['/requests', id]);
   }
 }

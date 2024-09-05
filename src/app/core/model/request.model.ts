@@ -10,8 +10,3 @@ export interface UserRequest {
   date: string;
   status: RequestStatus;
 }
-
-//TODO: modifiy this interface with the real api keys
-export interface RequestResponse<T> {
-  data: T;
-}

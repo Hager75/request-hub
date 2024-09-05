@@ -1,1 +1,9 @@
-<p>view-edit-request-container works!</p>
+@if (isLoading() === false) {
+  <app-view-edit-request
+    [request]="requestInfo()"
+    [isLoading]="isShowBtnLoader()"
+    (changeStatus)="onChangeStatus($event)"
+  />
+} @else {
+  <app-loader className="my-10" />
+}

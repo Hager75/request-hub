@@ -29,7 +29,7 @@ export class HomeContainerComponent {
       .pipe(
         tap(() => {
           this.toastr.success('Request is added Successfully!');
-          this.requestService.addRequestLocalStorage(formData);
+          this.requestService.addRequestLocalStorage([formData]);
         }),
         finalize(() => {
           this.isLoading.set(false);

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 import { ToastrService } from 'ngx-toastr';
 import { RequestService } from '../../core/services/request.service';
 import { HomeContainerComponent } from './home-container.component';
@@ -17,7 +17,6 @@ describe('HomeContainerComponent', () => {
   let fixture: ComponentFixture<HomeContainerComponent>;
   let requestService: jasmine.SpyObj<RequestService>;
   let toastr: jasmine.SpyObj<ToastrService>;
-  let store: MockStore;
 
   beforeEach(async () => {
     const requestServiceSpy = jasmine.createSpyObj('RequestService', [
@@ -46,7 +45,6 @@ describe('HomeContainerComponent', () => {
     component = fixture.componentInstance;
     requestService = TestBed.inject(RequestService) as jasmine.SpyObj<RequestService>;
     toastr = TestBed.inject(ToastrService) as jasmine.SpyObj<ToastrService>;
-    store = TestBed.inject(MockStore);
   });
 
   it('should create', () => {
@@ -69,7 +67,7 @@ describe('HomeContainerComponent', () => {
     component.onSubmit(formData);
 
     expect(requestService.createRequest).toHaveBeenCalledWith(formData);
-    expect(requestService.addRequestLocalStorage).toHaveBeenCalledWith(formData);
+    expect(requestService.addRequestLocalStorage).toHaveBeenCalledWith([formData]);
     expect(toastr.success).toHaveBeenCalledWith('Request is added Successfully!');
     expect(component.isLoading()).toBeFalse();
   });
