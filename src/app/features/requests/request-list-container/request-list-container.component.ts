@@ -22,7 +22,7 @@ export class RequestListContainerComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading.set(true);
     this.requestService
-      .getRequets()
+      .getRequests()
       .pipe(
         tap(() => {
           const addedRequests = this.requestService.getRequestStorge();

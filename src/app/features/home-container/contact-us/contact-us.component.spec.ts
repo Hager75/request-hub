@@ -25,7 +25,7 @@ describe('ContactUsComponent', () => {
         RecaptchaModule,
         RecaptchaFormsModule,
       ],
-      schemas: [NO_ERRORS_SCHEMA], // Ignore unknown components
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ContactUsComponent);

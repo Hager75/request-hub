@@ -22,8 +22,8 @@ export class RequestService {
     localStorage.setItem(REQUESTS, newRequets);
   }
 
-  getRequets(): Observable<Request[]> {
-    return this.http.get<Request[]>(`http/200`);
+  getRequests(): Observable<UserRequest[]> {
+    return this.http.get<UserRequest[]>(`http/200`);
   }
 
   getRequestStorge(): UserRequest[] {
@@ -34,11 +34,11 @@ export class RequestService {
     localStorage.removeItem(REQUESTS);
   }
 
-  getRequetDetails(id: string): Observable<Request> {
-    return this.http.get<Request>(`http/200/${id}`);
+  getRequetDetails(id: string): Observable<UserRequest> {
+    return this.http.get<UserRequest>(`http/200/${id}`);
   }
 
-  updateRequest(id: string, status: RequestStatus): Observable<Request> {
-    return this.http.put<Request>(`http/200/${id}`, {});
+  updateRequest(id: string, status: RequestStatus): Observable<UserRequest> {
+    return this.http.put<UserRequest>(`http/200/${id}`, {});
   }
 }

@@ -62,7 +62,7 @@ describe('HomeContainerComponent', () => {
       date: '01-02-2024',
       status: RequestStatus.Submitted,
     };
-    requestService.createRequest.and.returnValue(of(formData)); // Mock successful response
+    requestService.createRequest.and.returnValue(of(formData));
 
     component.onSubmit(formData);
 
@@ -74,7 +74,6 @@ describe('HomeContainerComponent', () => {
 
   it('should handle error response from requestService.createRequest', () => {
     const formData: UserRequest = {
-      /* populate with valid UserRequest data */
       username: 'Sara',
       phone: '0125484545',
       email: 'sara@gmail.com',
@@ -100,7 +99,7 @@ describe('HomeContainerComponent', () => {
     component.isLoading.set(true);
     fixture.detectChanges();
 
-    const loadingIndicator = fixture.nativeElement.querySelector('app-loader'); // Adjust selector if necessary
+    const loadingIndicator = fixture.nativeElement.querySelector('app-loader');
     expect(loadingIndicator).toBeTruthy();
   });
 });
