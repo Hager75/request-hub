@@ -52,6 +52,13 @@ export const sortDateTypeOptions: Option[] = [
   },
 ];
 
+export const statusMap = {
+  [RequestStatus.Submitted]: '1',
+  [RequestStatus.Resolved]: '2',
+  [RequestStatus.NotApplicable]: '0',
+  all: SELECT_ALL,
+};
+
 export const STATIC_REQUESTS: UserRequest[] = [
   {
     id: 1,

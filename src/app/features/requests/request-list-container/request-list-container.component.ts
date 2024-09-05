@@ -22,16 +22,32 @@ export class RequestListContainerComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading.set(true);
     this.requestService
-      .getRequets()
+      .getRequests()
       .pipe(
         tap(() => {
-          const addedRequest = this.requestService.getRequestStorge();
-          this.requestList.set([...addedRequest, ...STATIC_REQUESTS]);
+          const addedRequests = this.requestService.getRequestStorge();
+          if (addedRequests.length === 0) {
+            this.requestService.removeRequestStorge();
+            this.requestService.addRequestLocalStorage([...STATIC_REQUESTS]);
+            this.requestList.set(this.sortListByDate(STATIC_REQUESTS));
+          } else {
+            this.requestList.set(this.sortListByDate(addedRequests));
+          }
         }),
         finalize(() => {
           this.isLoading.set(false);
         })
       )
       .subscribe();
+  }
+
+  sortListByDate(list: UserRequest[]): UserRequest[] {
+    return [
+      ...list.sort((a, b) => {
+        const dateA = new Date(a.date).getTime();
+        const dateB = new Date(b.date).getTime();
+        return dateB - dateA;
+      }),
+    ];
   }
 }

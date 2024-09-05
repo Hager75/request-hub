@@ -9,8 +9,6 @@ export const authGuard: CanMatchFn = () => {
   const errorService = inject(ErrorService);
   const router = inject(Router);
   const isLoggedIn = loginService.userToken();
-  console.log('inbnn');
-
   if (!isLoggedIn) {
     errorService.setError("You can't access this page");
     return router.createUrlTree(['/error']);

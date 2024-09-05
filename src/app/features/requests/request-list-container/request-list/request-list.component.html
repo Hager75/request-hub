@@ -42,7 +42,10 @@
                 >{{ request.status }}</span
               >
             </p>
-            <button class="btn-primary flex items-center justify-center">
+            <button
+              class="btn-primary flex items-center justify-center"
+              (click)="onClick(request.id)"
+            >
               Edit
               <svg
                 class="w-3 mt-1 h-3 ms-2 rtl:rotate-180"
